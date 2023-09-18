@@ -48,10 +48,50 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
 As a developer, you are tasked with creating a treasure hunt game. The user will see a game board on the page and be able to select various squares on the board. Hidden behind one square is a treasure that will win the game, and hidden behind another square is a bomb that will lose the game. All other squares will reveal a neutral image. The user will be given a particular number of clicks to find the treasure that will win the game.
 
 ### 📚 User Stories
+~Look at the tools that are provided, components 
+~console.log()
 
 - As a user, I can see a page with a three by three grid board game with a question mark in each square.
+~branch name: grid
+~imported the Square component 
+~passed board as props to the Square component
+~Since board is an array, use .map() to iterate across each value in the array an return the value inside of a square.
+~increase the font size on App.css
+~use flexbox to create a 3x3 grid
+
 - As a user, when I click on one of the question marks, an alert appears with the index position of that question mark in the array.
+~branch name: alert
+~create a function that will send an alert message with the index position of that question mark in the array
+~Psuedo: 
+1. function name: handleClick
+2. input: index (number)
+3. ouput: index (number)
+4. process: use alert() to show the index of the selected square
+~place function on App.js, the container component 
+
+FUNCTION EXPRESSION
+```js
+const handleClick = (selectedIndex) => {
+//return something
+alert(selectedIndex)
+}
+
+~
+
+
 - As a user, when I click on one of the question marks, a tree emoji appears instead of the alert.
+
+~branch name: emoji 
+~Psuedo: (continuation of process on handleClick)
+~reference the selected square using its index and reassign the value
+~use the setter function `setBoard` to update the value of the state variable `board` by using the spread operator with `...` to copy the values
+~B/c it only copies values, we will encapsulate the spread operator 
+~use the setter function `setBoard` to update the value of the state variable `board`
+~emoji: ✨ will be used for the default emoji
+~the treasure index will be randomly created using the Math.floor and Math.random()
+~use setter function and spread operator as reference on the sparkle emoji user story
+
+
 - As a user, if I select the winning square, the question mark will become a treasure emoji. If I select the losing square, the question mark will become a bomb emoji.
 - As a user, I can click on a “Play Again” button that will restart the game.
 - As a user, I can see a counter that shows how many guesses are remaining. The counter starts at five and decrements by one every time I click on a square that is neither the treasure nor the bomb.
